@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteLink</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="menu" id="menu">
+        <div class="menu-header">
+            <h2>VoteLink</h2>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i><span> Inicio</span></a></li>
+            <li><a href="contenido/elecciones.html"><i class="fas fa-cogs"></i><span> Elecciones</span></a></li>
+            <li><a href="contenido/Candidatos.html"><i class="fas fa-users"></i><span> Candidatos</span></a></li>
+            <li><a href="contenido/usuarios.html"><i class="fas fa-envelope"></i><span> Usuarios</span></a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>VoteLink</h1>
+        <p>Este es un ejemplo de un menú lateral contraíble y responsivo.</p>
+    </div>
+    <script>
+        const menu = document.getElementById('menu');
+        const toggleButton = document.getElementById('menu-toggle');
+        const content = document.querySelector('.content');
+
+        // Agrega clase 'collapsed' automáticamente en pantallas pequeñas
+        if (window.innerWidth <= 768) {
+            menu.classList.add('collapsed');
+            content.style.marginLeft = '70px'; // Ajuste para pantallas pequeñas
+        }
+
+        toggleButton.addEventListener('click', () => {
+            menu.classList.toggle('collapsed');
+            if (menu.classList.contains('collapsed')) {
+                content.style.marginLeft = '70px'; // Ajuste al contraer
+            } else {
+                content.style.marginLeft = '250px'; // Ajuste al expandir
+            }
+        });
+    </script>
+</body>
+</html>

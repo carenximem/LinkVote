@@ -1,0 +1,141 @@
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo del menú lateral */
+.menu {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    width: 250px;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.menu.collapsed {
+    width: 70px;
+}
+
+.menu h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu.collapsed h2 {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.menu ul li {
+    margin: 20px 0;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.menu ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.menu ul li a i {
+    margin-right: 10px;
+    font-size: 20px;
+    transition: margin 0.3s ease;
+}
+
+.menu.collapsed ul li a {
+    justify-content: center;
+    overflow: hidden;
+}
+
+.menu.collapsed ul li a i {
+    margin: 0 auto;
+}
+
+.menu ul li a span {
+    display: inline-block;
+    transition: opacity 0.4s ease, visibility 0.4s ease, height 0.4s ease;
+}
+
+.menu.collapsed ul li a span {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Encabezado del menú */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Estilo del contenido */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    overflow: auto;
+}
+
+.menu.collapsed ~ .content {
+    margin-left: 70px;
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+    .menu {
+        width: 200px;
+    }
+
+    .menu.collapsed {
+        width: 60px;
+    }
+
+    .content {
+        margin-left: 200px;
+    }
+
+    .menu.collapsed ~ .content {
+        margin-left: 60px;
+    }
+}
